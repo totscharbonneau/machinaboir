@@ -1,0 +1,26 @@
+# name, time, deleg, strite
+Kiki,12,boss,Mii.png
+Gonzo,12,ets,Mii.png
+Jennifer,12,ets,Mii.png
+Charks,12,La Poly,Mii.png
+Teddy,12,La Poly,Mii.png
+Harry,12,Conco,Mii.png
+Jalcool,12,Conco,Mii.png
+Moonshine,12,Laval,Mii.png
+Iz,12,Laval,Mii.png
+Julez,12,McGill,Mii.png
+Benji,12,McGill,Mii.png
+Dyane,12,Chicout,Mii.png
+Biggy,12,Chicout,Mii.png
+Marjo,12,TR,Mii.png
+Flourd,12,TR,Mii.png
+PO,12,Drummond,Mii.png
+Brad,12,Drummond,Mii.png
+Pino,12,Abitibi,Mii.png
+Crepeau,12,Abitibi,Mii.png
+Rizza,12,uottawa,Mii.png
+Scar,12,uottawa,Mii.png
+Marie-Minute,12,Rimou,Mii.png
+Lucille,12,Rimou,Mii.png
+Jobig,12,Sherby,Mii.png
+Jake,12,Sherby,Mii.png
