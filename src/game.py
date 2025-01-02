@@ -1,11 +1,12 @@
 import sys,os, time, pygame
 
 from src.states.title import Title
+import serial
 
 class Game():
     def __init__(self):
         pygame.init()
-        self.game_width, self.game_height = 1980, 1020
+        self.game_width, self.game_height = 960, 510
         self.screen_width, self.screen_height = 1980/1.5, 1020/1.5
         self.game_canvas = pygame.Surface((self.game_width, self.game_height))
         self.screen = pygame.display.set_mode((self.screen_width,self.screen_height))
@@ -17,6 +18,20 @@ class Game():
         self.state_stack = []
         self.load_assets()
         self.start_states()
+        self.serial_connection = serial.Serial("COM3", 9600, timeout=1)
+
+    def get_serial_events(self):
+        # Read serial data from Arduino
+        if self.serial_connection.in_waiting > 0:
+            line = self.serial_connection.readline().decode("utf-8").strip()
+            print(line)
+            if line == "Select":
+                self.inputs["enter"] = True
+            elif line == "Left":
+                self.inputs["left"] = True
+            elif line == "Right":
+                self.inputs["right"] = True
+
 
     def game_loop(self):
         clock = pygame.time.Clock()
@@ -27,10 +42,13 @@ class Game():
             self.render()
             clock.tick(60)
 
+        pygame.quit()  # Quit Pygame and close the window cleanly
+
     def get_events(self):
+        self.get_serial_events()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.running = False
+                sys.exit()
             # changer pour les boutons
             if event.type == pygame.KEYDOWN:
                 match event.key:
@@ -70,6 +88,7 @@ class Game():
         self.assets_dir = os.path.join("assets")
         self.mii_dir = os.path.join(self.assets_dir,"parrainmii")
         self.ui_dir = os.path.join(self.assets_dir,"ui")
+        self.background_dir = os.path.join(self.assets_dir,"background")
         self.font = pygame.font.Font(None,40)
 
     def draw_text(self,surface,text,color,x,y):

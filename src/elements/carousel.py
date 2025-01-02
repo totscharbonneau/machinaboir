@@ -31,9 +31,9 @@ class Carousel():
 
         self.currentParrains = window
 
-        self.parrainlist[(start - 1) % 25].overwriteposition(-2 * (self.game.game_width / 5), self.game.game_height / 4)
+        self.parrainlist[(start - 1) % 24].overwriteposition(-2 * (self.game.game_width / 5), self.game.game_height / 4)
 
-        self.parrainlist[(end + 1) % 25].overwriteposition(6 * self.game.game_width / 5, self.game.game_height / 4)
+        self.parrainlist[(end + 1) % 24].overwriteposition(6 * self.game.game_width / 5, self.game.game_height / 4)
 
     def initParrains(self):
         for parrain in parrain_data:
@@ -61,10 +61,10 @@ class Carousel():
 
     def update(self, dt, actions):
         if actions['left']:
-            self.selectedParrainkey = (self.selectedParrainkey - 1) % 25
+            self.selectedParrainkey = (self.selectedParrainkey - 1) % 24
 
         elif actions['right']:
-            self.selectedParrainkey = (self.selectedParrainkey + 1) % 25
+            self.selectedParrainkey = (self.selectedParrainkey + 1) % 24
 
         self.set_parrain_window()
         self.set_positionCurrentP()

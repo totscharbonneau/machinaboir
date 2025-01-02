@@ -10,7 +10,7 @@ def create_parrain_data(file_path):
             name, time, deleg, sprite = line.strip().split(',')
             parrain_dict = {
                 "name": name,
-                "time": int(time),
+                "time": float(time),
                 "deleg": deleg.lower(),
                 "sprite": sprite
             }

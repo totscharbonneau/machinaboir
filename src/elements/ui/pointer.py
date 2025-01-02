@@ -5,9 +5,9 @@ import numpy as np
 class LovePointer():
     def __init__(self, game, angle):
         self.game = game
-        self.sprite = pygame.Surface((300, 10), pygame.SRCALPHA)
+        self.sprite = pygame.Surface((200, 10), pygame.SRCALPHA)
         pygame.draw.rect(self.sprite, (255, 0, 0), self.sprite.get_rect())
-        self.rect = self.sprite.get_rect(midbottom=(game.game_width/2-self.sprite.get_width()/2, game.game_height/2 + 35 ))
+        self.rect = self.sprite.get_rect(midbottom=(game.game_width/2-self.sprite.get_width()/2, game.game_height- 30 ))
         self.angle = 0
         self.finalAngle = angle
         self.elapsedTime = 0

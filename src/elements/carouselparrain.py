@@ -12,11 +12,11 @@ class Parrain():
         self.speed = 800
         self.current_frame , self.last_frame_update = 0, 0
 
-        self.font = pygame.font.Font(None, 75)
+        self.font = pygame.font.Font(None, 50)
         self.text_surface = self.font.render(self.data['name'], True, (0, 0, 0))
         self.text_rect = self.text_surface.get_rect()
         self.mii_width = self.sprite.get_width()
-        self.text_rect.center = (self.real_x + self.mii_width / 2, self.real_y + 15)
+        self.text_rect.center = (self.real_x + self.mii_width / 2, self.real_y - 10)
 
     def update(self,dt,actions):
         if self.real_x != self.x:
@@ -34,7 +34,7 @@ class Parrain():
             else:
                 self.real_y -= self.speed*dt
 
-        self.text_rect.center = (self.real_x + self.mii_width / 2, self.real_y + 15)
+        self.text_rect.center = (self.real_x + self.mii_width / 2, self.real_y - 15)
 
     def render(self,display,gif=False):
         if gif:
